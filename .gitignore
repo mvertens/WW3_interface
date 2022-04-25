@@ -1,0 +1,10 @@
+# Externals
+WW3
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+cime_config/buildnmlc
+cime_config/buildlibc
+*$py.class
+buildnmlc
