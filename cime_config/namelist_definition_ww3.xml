@@ -48,19 +48,6 @@
     </desc>
   </entry>
 
-  <entry id="outfreq">
-    <type>integer</type>
-    <group>ww3_inparm</group>
-    <category>setup</category>
-    <valid_values>0,1,2,3,4,6,8,12,24</valid_values>
-    <values>
-        <value>0</value>
-    </values>
-    <desc>
-      Output frequency (6 = once per 6 hours). A value of 0 turns output off.
-    </desc>
-  </entry>
-
   <entry id="prestage_wind">
     <type>char</type>
     <group>prestage_only</group>
