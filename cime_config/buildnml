@@ -239,11 +239,15 @@ def buildnml(case, caseroot, compname):
         mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "gx1v7.mod_def.ww3.wwver7.14.220506")
     elif wav_grid == "wtx0.66v1":
         mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "wt061.mod_def.ww3.wwver7.14.220504")
+    elif wav_grid == "wtnx1v4":
+        mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "wtnx1v4.mod_def.ww3.230308")
     else:
         raise RuntimeError("Unknown WAV grid: {}".format(wav_grid))
 
     if os.path.isfile(mod_def_in):
         shutil.copy(mod_def_in, os.path.join(rundir, "mod_def.ww3"))
+    else:
+        raise RuntimeError("mod_def_in {} does not exist on disk".format(mod_def_in))
 
 ###############################################################################
 def _main_func():
