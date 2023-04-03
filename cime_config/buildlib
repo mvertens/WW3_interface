@@ -36,7 +36,7 @@ def buildlib(bldroot, libroot, case, compname=None):
 
     # Determine cmake flags
     sharedpath = os.path.join(case.get_value("COMPILER"), mpilib, strdebug, strthread, "nuopc")
-    cmake_flags = get_standard_cmake_args(case, os.path.join(sharedpath), shared_lib=True)
+    cmake_flags = get_standard_cmake_args(case, os.path.join(sharedpath))
     # note: base path of install to be completed by setting DESTDIR in make install
     cmake_flags += " -DCMAKE_INSTALL_PREFIX:PATH=/"     
     cmake_flags += " -DLIBROOT={} ".format(libroot)
