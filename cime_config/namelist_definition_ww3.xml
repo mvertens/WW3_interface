@@ -32,8 +32,9 @@
     <type>char</type>
     <group>ww3_inparm</group>
     <category>setup</category>
-    <input_pathname>abs</input_pathname>
     <values>
+      <value runtype="startup">"" </value>
+      <value runtype="hybrid" >"" </value>
       <value runtype="startup"	wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
       <value runtype="hybrid"	wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
       <value runtype="startup"	wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
@@ -82,6 +83,7 @@
     <group>ww3_inparm</group>
     <category>setup</category>
     <values>
+      <value>1800.</value>
       <value wav_grid="ww3a">3600.</value>
       <value wav_grid="gx1v7">1800.</value>
       <value wav_grid="wtx0.66v1">1200.</value>
@@ -96,6 +98,7 @@
     <group>ww3_inparm</group>
     <category>setup</category>
     <values>
+      <value>900.</value>
       <value wav_grid="ww3a">1800.</value>
       <value wav_grid="gx1v7">900.</value>
       <value wav_grid="wtx0.66v1">600.</value>
@@ -110,6 +113,7 @@
     <group>ww3_inparm</group>
     <category>setup</category>
     <values>
+      <value>900.</value>
       <value wav_grid="ww3a">1800.</value>
       <value wav_grid="gx1v7">900.</value>
       <value wav_grid="wtx0.66v1">600.</value>
