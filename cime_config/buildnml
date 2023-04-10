@@ -242,7 +242,9 @@ def buildnml(case, caseroot, compname):
     elif wav_grid == "wtnx1v4":
         mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "wtnx1v4.mod_def.ww3.230308")
     elif wav_grid == "tri1degmask":
-        mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "mod_def.exp.trip1degmask")
+        mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "mod_def.trip1degmask")
+    elif wav_grid == "":
+        mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "mod_def.wise.tnx1v4.100k")
     else:
         raise RuntimeError("Unknown WAV grid: {}".format(wav_grid))
 
