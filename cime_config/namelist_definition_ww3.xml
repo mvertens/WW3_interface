@@ -32,15 +32,17 @@
     <type>char</type>
     <group>ww3_inparm</group>
     <category>setup</category>
-    <input_pathname>abs</input_pathname>
     <values>
-      <!-- The following four files are for wwver 6.07 and will not be compatible with wwver 7.14 -->
-      <value runtype="startup" wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
-      <value runtype="hybrid" wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
-      <value runtype="startup" wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
-      <value runtype="hybrid" wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
-      <value runtype="startup" wav_grid="wtx0.66v1">$DIN_LOC_ROOT/wav/ww3/wt061.restart.ww3.calm.wwver7.14.220110</value>
-      <value runtype="hybrid" wav_grid="wtx0.66v1">$DIN_LOC_ROOT/wav/ww3/wt061.restart.ww3.calm.wwver7.14.220110</value>
+      <value runtype="startup">"" </value>
+      <value runtype="hybrid" >"" </value>
+      <value runtype="startup"	wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
+      <value runtype="hybrid"	wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
+      <value runtype="startup"	wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
+      <value runtype="hybrid"	wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
+      <value runtype="startup"	wav_grid="wtx0.66v1">$DIN_LOC_ROOT/wav/ww3/wt061.restart.ww3.calm.wwver7.14.220110</value>
+      <value runtype="hybrid"	wav_grid="wtx0.66v1">$DIN_LOC_ROOT/wav/ww3/wt061.restart.ww3.calm.wwver7.14.220110</value>
+      <value runtype="startup"	wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
+      <value runtype="hybrid"	wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
     </values>
     <desc>
       Initial condition file.
@@ -81,9 +83,11 @@
     <group>ww3_inparm</group>
     <category>setup</category>
     <values>
+      <value>1800.</value>
       <value wav_grid="ww3a">3600.</value>
       <value wav_grid="gx1v7">1800.</value>
       <value wav_grid="wtx0.66v1">1200.</value>
+      <value wav_grid="wtnx1v4">1800.</value>
     </values>
     <desc>
       Maximum overall time step
@@ -94,9 +98,11 @@
     <group>ww3_inparm</group>
     <category>setup</category>
     <values>
+      <value>900.</value>
       <value wav_grid="ww3a">1800.</value>
       <value wav_grid="gx1v7">900.</value>
       <value wav_grid="wtx0.66v1">600.</value>
+      <value wav_grid="wtnx1v4">900.</value>
     </values>
     <desc>
       Maximum CFL time step X-Y propagation.
@@ -107,9 +113,11 @@
     <group>ww3_inparm</group>
     <category>setup</category>
     <values>
+      <value>900.</value>
       <value wav_grid="ww3a">1800.</value>
       <value wav_grid="gx1v7">900.</value>
       <value wav_grid="wtx0.66v1">600.</value>
+      <value wav_grid="wtnx1v4">900.</value>
     </values>
     <desc>
       Id. intra-spectral

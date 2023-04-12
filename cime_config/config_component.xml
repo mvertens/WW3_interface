@@ -15,6 +15,18 @@
     <desc>Name of wave component</desc>
   </entry>
 
+  <entry id="WW3_UNSTRUCT">
+    <type>logical</type>
+    <default_value>FALSE</default_value>
+    <values>
+      <value grid="_w%wise.tnx1v4.100k">TRUE</value>
+      <value grid="_w%tri1degmask">TRUE</value>
+    </values>
+    <group>case_comp</group>
+    <file>env_case.xml</file>
+    <desc>if TRUE, use the unstructured mesh configuration of WW3</desc>
+  </entry>
+
   <help>
     =========================================
     WW naming conventions
