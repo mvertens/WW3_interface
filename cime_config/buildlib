@@ -35,12 +35,16 @@ def buildlib(bldroot, libroot, case, compname=None):
     srcpath = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, "WW3", "model", "src"))
 
     # Determine cmake flags
+    use_unstruct = case.get_value("WW3_UNSTRUCT")
     sharedpath = os.path.join(case.get_value("COMPILER"), mpilib, strdebug, strthread, "nuopc")
     cmake_flags = get_standard_cmake_args(case, os.path.join(sharedpath), shared_lib=True)
     # note: base path of install to be completed by setting DESTDIR in make install
     cmake_flags += " -DCMAKE_INSTALL_PREFIX:PATH=/"     
     cmake_flags += " -DLIBROOT={} ".format(libroot)
     cmake_flags += " -DMPILIB={} ".format(mpilib)
+    use_unstruct = case.get_value("WW3_UNSTRUCT")
+    if use_unstruct:
+        cmake_flags += " -DUSE_UNSTRUCT=on "
     cmake_flags += srcpath
 
     # run cmake
