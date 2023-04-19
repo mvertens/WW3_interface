@@ -2,6 +2,7 @@
 
 """Namelist creator for ww3
 """
+import sys, os, shutil
 
 # Typically ignore this.
 # pylint: disable=invalid-name
@@ -11,16 +12,18 @@
 # pylint: disable=multiple-imports, too-many-locals, too-many-branches, too-many-statements
 import os, shutil, sys
 
-CIMEROOT = os.environ.get("CIMEROOT")
-if CIMEROOT is None:
+_CIMEROOT = os.environ.get("CIMEROOT")
+if _CIMEROOT is None:
     raise SystemExit("ERROR: must set CIMEROOT environment variable")
-sys.path.append(os.path.join(CIMEROOT, "scripts", "Tools"))
 
-from standard_script_setup import *
-from CIME.case import Case
-from CIME.nmlgen import NamelistGenerator
-from CIME.utils import expect
-from CIME.buildnml import create_namelist_infile, parse_input
+_LIBDIR = os.path.join(_CIMEROOT, "CIME", "Tools")
+sys.path.append(_LIBDIR)
+
+from standard_script_setup          import *
+from CIME.buildnml                  import create_namelist_infile, parse_input
+from CIME.case                      import Case
+from CIME.utils                     import expect, run_cmd
+from CIME.nmlgen                    import NamelistGenerator
 
 logger = logging.getLogger(__name__)
 
@@ -182,6 +185,7 @@ def buildnml(case, caseroot, compname):
     data_list_path = os.path.join(case.get_case_root(), "Buildconf", "ww3.input_data_list")
     if os.path.exists(data_list_path):
         os.remove(data_list_path)
+
     #----------------------------------------------------
     # Loop over instances
     #----------------------------------------------------
@@ -231,27 +235,17 @@ def buildnml(case, caseroot, compname):
     din_loc_root = case.get_value("DIN_LOC_ROOT")
     wav_grid = case.get_value("WAV_GRID")
 
-    # mod_def.ww3: grid and model configuration
-    # currently only ww3a and wtx0.66v1 are supported
-    if wav_grid == "ww3a":
-        mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "ww3a.mod_def.ww3.wwver7.14.220506")
-    elif wav_grid == "gx1v7":
-        mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "gx1v7.mod_def.ww3.wwver7.14.220506")
-    elif wav_grid == "wtx0.66v1":
-        mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "wt061.mod_def.ww3.wwver7.14.220504")
-    elif wav_grid == "wtnx1v4":
-        mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "wtnx1v4.mod_def.ww3.230308")
-    elif wav_grid == "tri1degmask":
-        mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "mod_def.trip1degmask")
-    elif wav_grid == "wise.tnx1v4.100k":
-        mod_def_in = os.path.join(din_loc_root, "wav", "ww3", "mod_def.wise.tnx1v4.100k")
+    # If mod_def.ww3 is already in the directory - then use it
+    rundir = case.get_value("RUNDIR")
+    mod_def_user = os.path.join(rundir, "mod_def.ww3.user")
+    if os.path.isfile(mod_def_user):
+        shutil.copy(mod_def_user, os.path.join(rundir, "mod_def.ww3"))
     else:
-        raise RuntimeError("Unknown WAV grid: {}".format(wav_grid))
-
-    if os.path.isfile(mod_def_in):
-        shutil.copy(mod_def_in, os.path.join(rundir, "mod_def.ww3"))
-    else:
-        raise RuntimeError("mod_def_in {} does not exist on disk".format(mod_def_in))
+        mod_def_in = case.get_value("WW3_MODDEF")
+        if os.path.isfile(mod_def_in):
+            shutil.copy(mod_def_in, os.path.join(rundir, "mod_def.ww3"))
+        else:
+            raise RuntimeError("mod_def_in {} does not exist on disk".format(mod_def_in))
 
 ###############################################################################
 def _main_func():
@@ -262,7 +256,6 @@ def _main_func():
     caseroot = parse_input(sys.argv)
     with Case(caseroot) as case:
         buildnml(case, caseroot, "ww")
-
 
 ###############################################################################
 
