@@ -40,7 +40,7 @@ def buildlib(bldroot, libroot, case, compname=None):
     sharedpath = os.path.join(case.get_value("COMPILER"), mpilib, strdebug, strthread, "nuopc")
     cmake_flags = get_standard_cmake_args(case, os.path.join(sharedpath))
     # note: base path of install to be completed by setting DESTDIR in make install
-    cmake_flags += " -DCMAKE_INSTALL_PREFIX:PATH=/"     
+    cmake_flags += " -DCMAKE_INSTALL_PREFIX:PATH=/"
     cmake_flags += " -DLIBROOT={} ".format(libroot)
     cmake_flags += " -DMPILIB={} ".format(mpilib)
     use_unstruct = case.get_value("WW3_UNSTRUCT")
@@ -66,14 +66,14 @@ def buildlib(bldroot, libroot, case, compname=None):
     s,o,e = run_cmd("make install VERBOSE=1 DESTDIR={}".format(destdir), from_dir=bldroot, verbose=True)
     expect(not s,"ERROR from make output={}, error={}".format(o,e))
 
-    rundir = case.get_value("RUNDIR")
-    ww3_moddef_dir = os.path.join(rundir, "ww3_moddef_create")
-    if not os.path.exists(ww3_moddef_dir):
-        os.makedirs(ww3_moddef_dir)
-        file_to_copy = os.path.join(bldroot, "wav", "obj", "ww3_grid")
-        case.copy(file_to_copy, ww3_moddef_dir)
-
-from CIME.utils import safe_copy
+    filename = "ww3_grid"
+    item = os.path.join(bldroot, filename)
+    if os.path.isfile(item):
+        rundir = case.get_value("RUNDIR")
+        ww3_moddef_dir = os.path.join(rundir, "ww3_moddef_create")
+        if not os.path.exists(ww3_moddef_dir):
+            os.makedirs(ww3_moddef_dir)
+        safe_copy(item, ww3_moddef_dir)
 
 def _main_func(args):
     caseroot, libroot, bldroot = parse_input(args)
