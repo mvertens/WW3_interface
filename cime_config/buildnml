@@ -22,7 +22,7 @@ sys.path.append(_LIBDIR)
 from standard_script_setup          import *
 from CIME.buildnml                  import create_namelist_infile, parse_input
 from CIME.case                      import Case
-from CIME.utils                     import expect, run_cmd
+from CIME.utils                     import expect, run_cmd, safe_copy
 from CIME.nmlgen                    import NamelistGenerator
 
 logger = logging.getLogger(__name__)
@@ -234,6 +234,19 @@ def buildnml(case, caseroot, compname):
     rundir = case.get_value("RUNDIR")
     din_loc_root = case.get_value("DIN_LOC_ROOT")
     wav_grid = case.get_value("WAV_GRID")
+
+    # Copy ww3_inp and other needed info to ww3_moddef_dir
+    ww3_moddef_dir = os.path.join(rundir, "ww3_moddef_create")
+    if not os.path.exists(ww3_moddef_dir):
+        os.makedirs(ww3_moddef_dir)
+
+    ww3_msh = case.get_value("WW3_MSH")
+    if ww3_msh != 'unset':
+        safe_copy(ww3_msh, ww3_moddef_dir)
+
+    ww3_grid_inp = case.get_value("WW3_GRID_INP")
+    if ww3_grid_inp != 'unset':
+        shutil.copy(ww3_grid_inp, os.path.join(ww3_moddef_dir, "ww3_grid.inp"))
 
     # If mod_def.ww3 is already in the directory - then use it
     rundir = case.get_value("RUNDIR")

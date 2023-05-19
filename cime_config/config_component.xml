@@ -43,6 +43,28 @@
     <desc>mod_def file to use</desc>
   </entry>
 
+  <entry id="WW3_GRID_INP">
+    <type>char</type>
+    <default_value>unset</default_value>
+    <values>
+      <value grid="_w%wise.tnx1v4p.100k">$DIN_LOC_ROOT/wav/ww3/ww3_grid_inp.wise.tnx1v4p.100k</value>
+    </values>
+    <group>case_comp</group>
+    <file>env_run.xml</file>
+    <desc>mod_def file to use</desc>
+  </entry>
+
+  <entry id="WW3_MSH">
+    <type>char</type>
+    <default_value>unset</default_value>
+    <values>
+      <value grid="_w%wise.tnx1v4p.100k">$DIN_LOC_ROOT/wav/ww3/GLOBAL_100k_with_tnx1v4maskP.msh</value>
+    </values>
+    <group>case_comp</group>
+    <file>env_run.xml</file>
+    <desc>mod_def file to use</desc>
+  </entry>
+
   <help>
     =========================================
     WW naming conventions
