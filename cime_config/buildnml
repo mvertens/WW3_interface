@@ -232,24 +232,19 @@ def buildnml(case, caseroot, compname):
     # Prestage necessary files to rundir
     #----------------------------------------------------
     rundir = case.get_value("RUNDIR")
-    din_loc_root = case.get_value("DIN_LOC_ROOT")
-    wav_grid = case.get_value("WAV_GRID")
 
     # Copy ww3_inp and other needed info to ww3_moddef_dir
-    ww3_moddef_dir = os.path.join(rundir, "ww3_moddef_create")
-    if not os.path.exists(ww3_moddef_dir):
-        os.makedirs(ww3_moddef_dir)
+    output_dir = os.path.join(rundir, "ww3_moddef_create")
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
-    ww3_msh = case.get_value("WW3_MSH")
-    if ww3_msh != 'unset':
-        safe_copy(ww3_msh, ww3_moddef_dir)
-
-    ww3_grid_inp = case.get_value("WW3_GRID_INP")
-    if ww3_grid_inp != 'unset':
-        shutil.copy(ww3_grid_inp, os.path.join(ww3_moddef_dir, "ww3_grid.inp"))
+    input_dir = case.get_value("WW3_GRID_INP_DIR")
+    files = os.listdir(input_dir)
+    for filename in files:
+        if not os.path.isfile(os.path.join(output_dir, filename)):
+            shutil.copy(os.path.join(input_dir, filename), os.path.join(output_dir, filename))
 
     # If mod_def.ww3 is already in the directory - then use it
-    rundir = case.get_value("RUNDIR")
     mod_def_user = os.path.join(rundir, "mod_def.ww3.user")
     if os.path.isfile(mod_def_user):
         shutil.copy(mod_def_user, os.path.join(rundir, "mod_def.ww3"))

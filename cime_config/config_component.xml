@@ -43,26 +43,14 @@
     <desc>mod_def file to use</desc>
   </entry>
 
-  <entry id="WW3_GRID_INP">
+  <entry id="WW3_GRID_INP_DIR">
     <type>char</type>
-    <default_value>unset</default_value>
-    <values>
-      <value grid="_w%wise.tnx1v4p.100k">$DIN_LOC_ROOT/wav/ww3/ww3_grid_inp.wise.tnx1v4p.100k</value>
-    </values>
+    <default_value>$DIN_LOC_ROOT/wav/ww3/grid_inp.${WAV_GRID}</default_value>
     <group>case_comp</group>
     <file>env_run.xml</file>
-    <desc>mod_def file to use</desc>
-  </entry>
-
-  <entry id="WW3_MSH">
-    <type>char</type>
-    <default_value>unset</default_value>
-    <values>
-      <value grid="_w%wise.tnx1v4p.100k">$DIN_LOC_ROOT/wav/ww3/GLOBAL_100k_with_tnx1v4maskP.msh</value>
-    </values>
-    <group>case_comp</group>
-    <file>env_run.xml</file>
-    <desc>mod_def file to use</desc>
+    <desc>Directory where ww3_grid.inp and associated files can be
+    found. This directory will normally be in the $DIN_LOC_ROOT/wav/ww3
+    directory and have the name of the ww3 grid.</desc>
   </entry>
 
   <help>
