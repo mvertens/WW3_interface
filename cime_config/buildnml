@@ -119,6 +119,8 @@ def _create_namelists(case, confdir, namelist_infile, nmlgen, data_list_path):
     fnml.write(f"  input%forcing%currents     = 'T'\n")
     fnml.write(f"  input%forcing%winds        = 'T'\n")
     fnml.write(f"  input%forcing%ice_conc     = 'T'\n")
+    fnml.write(f"  input%forcing%ice_param1   = 'T'\n")
+    fnml.write(f"  input%forcing%ice_param5   = 'T'\n")
     fnml.write(f"/\n")
 
     fnml.write(f"&output_type_nml\n")
