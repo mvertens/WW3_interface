@@ -35,6 +35,7 @@ def buildlib(bldroot, libroot, case, compname=None):
     exe_root = case.get_value("EXEROOT")
     srcpath = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, "WW3", "model", "src"))
 
+
     # Determine cmake flags
     use_unstruct = case.get_value("WW3_UNSTRUCT")
     sharedpath = os.path.join(case.get_value("COMPILER"), mpilib, strdebug, strthread, "nuopc")
@@ -46,6 +47,14 @@ def buildlib(bldroot, libroot, case, compname=None):
     use_unstruct = case.get_value("WW3_UNSTRUCT")
     if use_unstruct:
         cmake_flags += " -DUSE_UNSTRUCT=on "
+
+    waveprop = case.get_value("WW3_WAVEPROP")
+    if waveprop == 'PR3':
+        cmake_flags += " -DUSE_PR3=on "
+    elif waveprop == 'PR1':
+        cmake_flags += " -DUSE_PR1=on "
+    else:
+        expect(False,"ERROR only wave propagation type PR3 and PR1 are supported currently")
     cmake_flags += srcpath
 
     # run cmake

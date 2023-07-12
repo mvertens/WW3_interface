@@ -192,12 +192,100 @@
       <value>T</value>
     </values>
   </entry>
+  <entry id="input_percent_forcing_percent_ice_param2">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_ice_param3">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_ice_param4">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
   <entry id="input_percent_forcing_percent_ice_param5">
     <type>char</type>
     <group>input_nml</group>
     <category>setup</category>
     <values>
       <value>T</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_atm_momentum">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_air_density">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_mud_density">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_mud_thickness">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_mud_viscosity">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_assim_mean">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_assim_spec1d">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_assim_spec2d">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
     </values>
   </entry>
 
