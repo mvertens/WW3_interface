@@ -33,7 +33,7 @@
     <valid_values>PR1,PR3</valid_values>
     <default_value>PR3</default_value>
     <values>
-      <value grid="wtnx1v4nowall">PR1</value>
+      <value grid="wtnx1v4nw">PR1</value>
     </values>
     <group>case_comp</group>
     <file>env_build.xml</file>
@@ -46,10 +46,6 @@
     <values>
       <value grid="_w%gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.mod_def.ww3.wwver7.14.220506</value>
       <value grid="_w%wtx0.661v1">$DIN_LOC_ROOT/wav/ww3/wt061.mod_def.ww3.wwver7.14.220504</value>
-      <!-- <value grid="_w%wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.mod_def.ww3.230308</value> -->
-      <!-- <value grid="_w%wtnx1v4nowall" compset="%PR1">$DIN_LOC_ROOT/wav/ww3/wtnx1v4Nw_Pr1.mod_def.ww3.230621</value> -->
-      <!-- <value grid="_w%trip1degmask">$DIN_LOC_ROOT/wav/ww3/mod_def.trip1degmask</value> -->
-      <!-- <value grid="_w%wise.tnx1v4p.100k">$DIN_LOC_ROOT/wav/ww3/mod_def.wise.tnx1v4p.100k</value> -->
     </values>
     <group>case_comp</group>
     <file>env_build.xml</file>

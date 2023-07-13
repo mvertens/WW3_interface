@@ -264,7 +264,7 @@
       <value>F</value>
     </values>
   </entry>
-  <entry id="input_assim_mean">
+  <entry id="input_percent_assim_percent_mean">
     <type>char</type>
     <group>input_nml</group>
     <category>setup</category>
@@ -272,7 +272,7 @@
       <value>F</value>
     </values>
   </entry>
-  <entry id="input_assim_spec1d">
+  <entry id="input_percent_assim_percent_spec1d">
     <type>char</type>
     <group>input_nml</group>
     <category>setup</category>
@@ -280,7 +280,7 @@
       <value>F</value>
     </values>
   </entry>
-  <entry id="input_assim_spec2d">
+  <entry id="input_percent_assim_percent_spec2d">
     <type>char</type>
     <group>input_nml</group>
     <category>setup</category>
