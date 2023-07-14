@@ -43,6 +43,8 @@
       <value runtype="hybrid"	wav_grid="wtx0.66v1">$DIN_LOC_ROOT/wav/ww3/wt061.restart.ww3.calm.wwver7.14.220110</value>
       <value runtype="startup"	wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
       <value runtype="hybrid"	wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
+      <value runtype="startup"	wav_grid="wtnx1v4nw">' '</value>
+      <value runtype="hybrid"	wav_grid="wtnx1v4nw">' '</value>
     </values>
     <desc>
       Initial condition file.
@@ -88,6 +90,7 @@
       <value wav_grid="gx1v7">1800.</value>
       <value wav_grid="wtx0.66v1">1200.</value>
       <value wav_grid="wtnx1v4">1800.</value>
+      <value wav_grid="w025">1200.</value>
     </values>
     <desc>
       Maximum overall time step
@@ -103,6 +106,7 @@
       <value wav_grid="gx1v7">900.</value>
       <value wav_grid="wtx0.66v1">600.</value>
       <value wav_grid="wtnx1v4">900.</value>
+      <value wav_grid="w025">600.</value>
     </values>
     <desc>
       Maximum CFL time step X-Y propagation.
@@ -118,6 +122,7 @@
       <value wav_grid="gx1v7">900.</value>
       <value wav_grid="wtx0.66v1">600.</value>
       <value wav_grid="wtnx1v4">900.</value>
+      <value wav_grid="w025">600.</value>
     </values>
     <desc>
       Id. intra-spectral
