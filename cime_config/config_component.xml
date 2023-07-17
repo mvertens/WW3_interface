@@ -21,7 +21,7 @@
     <values>
       <value grid="_w%wise.tnx1v4p.100k">TRUE</value>
       <value grid="_w%tri1degmask">TRUE</value>
-      <value grid="_w%w025unstr">TRUE</value>
+      <value grid="_w%w025">TRUE</value>
     </values>
     <group>case_comp</group>
     <file>env_build.xml</file>
