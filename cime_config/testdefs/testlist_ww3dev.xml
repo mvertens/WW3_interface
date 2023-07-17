@@ -1,35 +1,35 @@
 <?xml version="1.0"?>
 <testlist version="2.0">
-  <test name="SMS_D" grid="TL319_t061" compset="GMOM_JRA_WD">
+  <test name="PFS" grid="T62_wtn14nw" compset="WW3test">
     <machines>
-      <machine name="cheyenne" compiler="intel" category="aux_ww3dev"/>
+      <machine name="betzy" compiler="intel" category="aux_ww3dev_noresm"/>
     </machines>
     <options>
       <option name="wallclock">01:00:00</option>
     </options>
   </test>
-  <test name="ERS" grid="TL319_t061_wt061" compset="GMOM_JRA_WD">
+  <test name="ERS_D_Ld5" grid="T62_wtn14" compset="WW3test">
     <machines>
-      <machine name="cheyenne" compiler="intel" category="aux_ww3dev"/>
+      <machine name="betzy" compiler="intel" category="aux_ww3dev_noresm"/>
     </machines>
     <options>
       <option name="wallclock">01:00:00</option>
     </options>
   </test>
-  <test name="ERS" grid="T62_g17" compset="2000_DATM%NYF_SLND_DICE%SSMI_POP2_DROF%NYF_SGLC_WW3DEV">
+  <test name="ERS_D_Ld5" grid="T62_wtn14nw" compset="WW3test">
     <machines>
-      <machine name="cheyenne" compiler="intel" category="aux_ww3dev"/>
+      <machine name="betzy" compiler="intel" category="aux_ww3dev_noresm"/>
     </machines>
     <options>
-      <option name="wallclock">00:30:00</option>
+      <option name="wallclock">01:00:00</option>
     </options>
   </test>
-  <test name="ERS" grid="T62_g17" compset="2000_DATM%NYF_SLND_CICE_POP2_DROF%NYF_SGLC_WW3DEV">
+  <test name="ERS_D_Ld5" grid="T62_w025" compset="WW3test">
     <machines>
-      <machine name="cheyenne" compiler="intel" category="aux_ww3dev"/>
+      <machine name="betzy" compiler="intel" category="aux_ww3dev_noresm"/>
     </machines>
     <options>
-      <option name="wallclock">00:30:00</option>
+      <option name="wallclock">01:00:00</option>
     </options>
   </test>
 </testlist>

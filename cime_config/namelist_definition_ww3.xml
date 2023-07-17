@@ -43,6 +43,8 @@
       <value runtype="hybrid"	wav_grid="wtx0.66v1">$DIN_LOC_ROOT/wav/ww3/wt061.restart.ww3.calm.wwver7.14.220110</value>
       <value runtype="startup"	wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
       <value runtype="hybrid"	wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
+      <value runtype="startup"	wav_grid="wtnx1v4nw">' '</value>
+      <value runtype="hybrid"	wav_grid="wtnx1v4nw">' '</value>
     </values>
     <desc>
       Initial condition file.
@@ -88,6 +90,7 @@
       <value wav_grid="gx1v7">1800.</value>
       <value wav_grid="wtx0.66v1">1200.</value>
       <value wav_grid="wtnx1v4">1800.</value>
+      <value wav_grid="w025">1200.</value>
     </values>
     <desc>
       Maximum overall time step
@@ -103,6 +106,7 @@
       <value wav_grid="gx1v7">900.</value>
       <value wav_grid="wtx0.66v1">600.</value>
       <value wav_grid="wtnx1v4">900.</value>
+      <value wav_grid="w025">600.</value>
     </values>
     <desc>
       Maximum CFL time step X-Y propagation.
@@ -118,6 +122,7 @@
       <value wav_grid="gx1v7">900.</value>
       <value wav_grid="wtx0.66v1">600.</value>
       <value wav_grid="wtnx1v4">900.</value>
+      <value wav_grid="w025">600.</value>
     </values>
     <desc>
       Id. intra-spectral
@@ -133,6 +138,260 @@
     <desc>
       Minimum dynamic time step for source
     </desc>
+  </entry>
+
+  <entry id='domain_percent_start'>
+    <type>char</type>
+    <group>domain_nml</group>
+    <category>setup</category>
+    <values>
+      <value>unset</value>
+    </values>
+  </entry>
+  <entry id="domain_percent_stop">
+    <type>char</type>
+    <group>domain_nml</group>
+    <category>setup</category>
+    <values>
+      <value>'99990101 0'</value>
+    </values>
+  </entry>
+
+  <entry id="input_percent_forcing_percent_water_levels">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>T</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_currents">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>T</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_winds">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>T</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_ice_conc">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>T</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_ice_param1">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>T</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_ice_param2">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_ice_param3">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_ice_param4">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_ice_param5">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>T</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_atm_momentum">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_air_density">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_mud_density">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_mud_thickness">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_forcing_percent_mud_viscosity">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_assim_percent_mean">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_assim_percent_spec1d">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+  <entry id="input_percent_assim_percent_spec2d">
+    <type>char</type>
+    <group>input_nml</group>
+    <category>setup</category>
+    <values>
+      <value>F</value>
+    </values>
+  </entry>
+
+  <entry id="type_percent_field_percent_list">
+    <type>char</type>
+    <group>output_type_nml</group>
+    <category>setup</category>
+    <values>
+      <value>WND ICE HS T02 T0M1 T01 FP DIR EF USS TOC</value>
+    </values>
+  </entry>
+  <entry id="type_percent_point_percent_file">
+    <type>char</type>
+    <group>output_type_nml</group>
+    <category>setup</category>
+    <values>
+      <value>points.list</value>
+    </values>
+  </entry>
+
+  <entry id="date_percent_field_percent_outffile">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>1</value>
+    </values>
+  </entry>
+  <entry id="date_percent_field_percent_start">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>unset</value>
+    </values>
+  </entry>
+  <entry id="date_percent_field_percent_stride">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>unset</value>
+    </values>
+  </entry>
+  <entry id="date_percent_field_percent_stop">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>99990101 0</value>
+    </values>
+  </entry>
+
+  <entry id="date_percent_restart_percent_start">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>unset</value>
+    </values>
+  </entry>
+  <entry id="date_percent_restart_percent_stride">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>unset</value>
+    </values>
+  </entry>
+  <entry id="date_percent_restart_percent_stop">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>99990101 0</value>
+    </values>
+  </entry>
+
+  <entry id="date_percent_restart2_percent_start">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>99990101 0</value>
+    </values>
+  </entry>
+  <entry id="date_percent_restart2_percent_stride">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>0</value>
+    </values>
+  </entry>
+  <entry id="date_percent_restart2_percent_stop">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>99990101 0</value>
+    </values>
   </entry>
 
 </entry_id>
