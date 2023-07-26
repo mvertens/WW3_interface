@@ -4,7 +4,7 @@
 
   <grid name="any">
     <mach name="betzy">
-      <pes pesize="M" compset="DATM.*WW3DEV">
+      <pes pesize="any" compset="DATM.*WW3DEV">
 	<comment>none</comment>
 	<ntasks>
 	  <ntasks_atm>256</ntasks_atm> 
