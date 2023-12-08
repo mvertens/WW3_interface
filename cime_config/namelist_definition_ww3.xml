@@ -299,9 +299,10 @@
     <group>output_type_nml</group>
     <category>setup</category>
     <values>
-      <value>WND ICE HS T02 T0M1 T01 FP DIR EF USS TOC</value>
+      <value>WND ICE HS T02 T0M1 T01 FP DP DIR EF USS TOC PHS PDIR PT01 PTM10</value>
     </values>
   </entry>
+
   <entry id="type_percent_point_percent_file">
     <type>char</type>
     <group>output_type_nml</group>
