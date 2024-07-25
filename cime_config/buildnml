@@ -65,7 +65,7 @@ def _create_namelists(case, confdir, namelist_infile, nmlgen, data_list_path):
     else:
         nmlgen.add_default("initfile")
 
-    # error check 
+    # error check
     dtcpl = basedt / int(ncpl)
     dtmax = int(float(nmlgen.get_value('dtmax')))
     if dtcpl%dtmax != 0:
@@ -84,8 +84,8 @@ def _create_namelists(case, confdir, namelist_infile, nmlgen, data_list_path):
     logger.debug("ww3 initial conditions file is %s", nmlgen.get_value("initfile"))
 
     namelist_file = os.path.join(confdir, "wav_in")
-    nmlgen.write_output_file(namelist_file, data_list_path, 
-                             groups=["domain_nml","input_nml","output_type_nml","output_date_nml","ww3_inparm"], 
+    nmlgen.write_output_file(namelist_file, data_list_path,
+                             groups=["domain_nml","input_nml","output_type_nml","output_date_nml","ww3_inparm"],
                              sorted_groups=False)
 
     from pathlib import Path
@@ -114,12 +114,12 @@ def buildnml(case, caseroot, compname):
     # Construct the namelist generator
     #----------------------------------------------------
     # determine directory for user modified namelist_definitions.xml and namelist_defaults.xml
-    user_xml_dir = os.path.join(caseroot, "SourceMods", "src.ww3dev")
+    user_xml_dir = os.path.join(caseroot, "SourceMods", "src.ww3")
     expect(os.path.isdir(user_xml_dir),
            "user_xml_dir %s does not exist " %user_xml_dir)
 
     # user definition *replaces* existing definition.
-    namelist_xml_dir = os.path.join(srcroot, "components", "ww3dev", "cime_config")
+    namelist_xml_dir = os.path.join(srcroot, "components", "ww3", "cime_config")
     definition_file = [os.path.join(namelist_xml_dir, "namelist_definition_ww3.xml")]
     user_definition = os.path.join(user_xml_dir, "namelist_definition_ww3.xml")
     if os.path.isfile(user_definition):
@@ -160,7 +160,7 @@ def buildnml(case, caseroot, compname):
             inst_string_label = "\"\""
 
         # create namelist_infile using user_nl_file as input
-        user_nl_file = os.path.join(caseroot, "user_nl_ww3dev" + inst_string)
+        user_nl_file = os.path.join(caseroot, "user_nl_ww3" + inst_string)
         expect(os.path.isfile(user_nl_file),
                "Missing required user_nl_file %s " %(user_nl_file))
         infile = os.path.join(confdir, "namelist_infile")
