@@ -393,4 +393,38 @@
     </values>
   </entry>
 
+  <entry id="history_option">
+    <type>char</type>
+    <category>time</category>
+    <group>ww3_inparm</group>
+    <valid_values>never,nseconds,nhours,ndays,nmonths,nyears,monthly,yearly,end</valid_values>
+    <desc>
+      ww3 history output option (used with history_n)
+      history_option alarms are:
+      [never], turns option off
+      [nseconds] , history snapshot every history_n nseconds, relative to current run start time
+      [nhours]   , history snapshot every history_n nhours  , relative to current run start time
+      [ndays]    , history snapshot every history_n ndays   , relative to current run start time
+      [monthly]  , history snapshot every           month   , relative to current run start time
+      [nmonths]  , history snapshot every history_n nmonths , relative to current run start time
+      [yearly]   , history snapshot every year              , relative to current run start time
+      [end]      , history snapshot at end
+    </desc>
+    <values>
+      <value>never</value>
+    </values>
+  </entry>
+
+  <entry id="history_n">
+    <type>integer</type>
+    <category>time</category>
+    <group>ww3_inparm</group>
+    <desc>
+      sets history file frequency
+    </desc>
+    <values>
+      <value>1</value>
+    </values>
+  </entry>
+
 </entry_id>
