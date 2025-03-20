@@ -35,16 +35,14 @@
     <values>
       <value runtype="startup">"" </value>
       <value runtype="hybrid" >"" </value>
-      <value runtype="startup"	wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
-      <value runtype="hybrid"	wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
-      <value runtype="startup"	wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
-      <value runtype="hybrid"	wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
-      <value runtype="startup"	wav_grid="wtx0.66v1">$DIN_LOC_ROOT/wav/ww3/wt061.restart.ww3.calm.wwver7.14.220110</value>
-      <value runtype="hybrid"	wav_grid="wtx0.66v1">$DIN_LOC_ROOT/wav/ww3/wt061.restart.ww3.calm.wwver7.14.220110</value>
-      <value runtype="startup"	wav_grid="wtnx1v4nw">' '</value>
-      <value runtype="hybrid"	wav_grid="wtnx1v4nw">' '</value>
-      <value runtype="startup"	wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
-      <value runtype="hybrid"	wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
+      <value runtype="startup" wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
+      <value runtype="hybrid"  wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
+      <value runtype="startup" wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
+      <value runtype="hybrid"  wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
+      <value runtype="startup" wav_grid="wtnx1v4nw">' '</value>
+      <value runtype="hybrid"  wav_grid="wtnx1v4nw">' '</value>
+      <value runtype="startup" wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
+      <value runtype="hybrid"  wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
     </values>
     <desc>
       Initial condition file.
@@ -138,23 +136,6 @@
     <desc>
       Minimum dynamic time step for source
     </desc>
-  </entry>
-
-  <entry id='domain_percent_start'>
-    <type>char</type>
-    <group>domain_nml</group>
-    <category>setup</category>
-    <values>
-      <value>unset</value>
-    </values>
-  </entry>
-  <entry id="domain_percent_stop">
-    <type>char</type>
-    <group>domain_nml</group>
-    <category>setup</category>
-    <values>
-      <value>'99990101 0'</value>
-    </values>
   </entry>
 
   <entry id="input_percent_forcing_percent_water_levels">
@@ -312,86 +293,37 @@
     </values>
   </entry>
 
-  <entry id="date_percent_field_percent_outffile">
+  <entry id="history_option">
     <type>char</type>
-    <group>output_date_nml</group>
-    <category>setup</category>
+    <category>time</category>
+    <group>ww3_inparm</group>
+    <valid_values>never,nseconds,nhours,ndays,nmonths,nyears,monthly,yearly,end</valid_values>
+    <desc>
+      ww3 history output option (used with history_n)
+      history_option alarms are:
+      [never], turns option off
+      [nseconds] , history snapshot every history_n nseconds, relative to current run start time
+      [nhours]   , history snapshot every history_n nhours  , relative to current run start time
+      [ndays]    , history snapshot every history_n ndays   , relative to current run start time
+      [monthly]  , history snapshot every           month   , relative to current run start time
+      [nmonths]  , history snapshot every history_n nmonths , relative to current run start time
+      [yearly]   , history snapshot every year              , relative to current run start time
+      [end]      , history snapshot at end
+    </desc>
+    <values>
+      <value>never</value>
+    </values>
+  </entry>
+
+  <entry id="history_n">
+    <type>integer</type>
+    <category>time</category>
+    <group>ww3_inparm</group>
+    <desc>
+      sets history file frequency
+    </desc>
     <values>
       <value>1</value>
-    </values>
-  </entry>
-  <entry id="date_percent_field_percent_start">
-    <type>char</type>
-    <group>output_date_nml</group>
-    <category>setup</category>
-    <values>
-      <value>unset</value>
-    </values>
-  </entry>
-  <entry id="date_percent_field_percent_stride">
-    <type>char</type>
-    <group>output_date_nml</group>
-    <category>setup</category>
-    <values>
-      <value>unset</value>
-    </values>
-  </entry>
-  <entry id="date_percent_field_percent_stop">
-    <type>char</type>
-    <group>output_date_nml</group>
-    <category>setup</category>
-    <values>
-      <value>99990101 0</value>
-    </values>
-  </entry>
-
-  <entry id="date_percent_restart_percent_start">
-    <type>char</type>
-    <group>output_date_nml</group>
-    <category>setup</category>
-    <values>
-      <value>unset</value>
-    </values>
-  </entry>
-  <entry id="date_percent_restart_percent_stride">
-    <type>char</type>
-    <group>output_date_nml</group>
-    <category>setup</category>
-    <values>
-      <value>unset</value>
-    </values>
-  </entry>
-  <entry id="date_percent_restart_percent_stop">
-    <type>char</type>
-    <group>output_date_nml</group>
-    <category>setup</category>
-    <values>
-      <value>99990101 0</value>
-    </values>
-  </entry>
-
-  <entry id="date_percent_restart2_percent_start">
-    <type>char</type>
-    <group>output_date_nml</group>
-    <category>setup</category>
-    <values>
-      <value>99990101 0</value>
-    </values>
-  </entry>
-  <entry id="date_percent_restart2_percent_stride">
-    <type>char</type>
-    <group>output_date_nml</group>
-    <category>setup</category>
-    <values>
-      <value>0</value>
-    </values>
-  </entry>
-  <entry id="date_percent_restart2_percent_stop">
-    <type>char</type>
-    <group>output_date_nml</group>
-    <category>setup</category>
-    <values>
-      <value>99990101 0</value>
     </values>
   </entry>
 

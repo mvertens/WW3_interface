@@ -16,7 +16,15 @@
       <option name="wallclock">01:00:00</option>
     </options>
   </test>
-  <test name="ERS_Ld3" grid="T62_wtn14nw" compset="WW3test">
+  <test name="ERR_Ld3" grid="T62_wtn14nw" compset="WW3test">
+    <machines>
+      <machine name="betzy" compiler="gnu" category="aux_ww3_noresm"/>
+    </machines>
+    <options>
+      <option name="wallclock">01:00:00</option>
+    </options>
+  </test>
+  <test name="ERI_Ld10" grid="T62_wtn14" compset="WW3test">
     <machines>
       <machine name="betzy" compiler="intel" category="aux_ww3_noresm"/>
     </machines>
@@ -24,28 +32,20 @@
       <option name="wallclock">01:00:00</option>
     </options>
   </test>
-  <test name="ERS_Ld3" grid="T62_wtn14" compset="WW3test">
+  <test name="SMS_D_Ld1" grid="T62_w025" compset="WW3test">
     <machines>
       <machine name="betzy" compiler="intel" category="aux_ww3_noresm"/>
     </machines>
     <options>
-      <option name="wallclock">01:00:00</option>
+      <option name="wallclock">01:01:00</option>
     </options>
   </test>
-  <test name="SMS_D_Ln10" grid="T62_w025" compset="WW3test">
+  <test name="ERS" grid="T62_w025" compset="WW3test">
     <machines>
       <machine name="betzy" compiler="intel" category="aux_ww3_noresm"/>
     </machines>
     <options>
-      <option name="wallclock">01:00:00</option>
-    </options>
-  </test>
-  <test name="ERS_Ln20" grid="T62_w025" compset="WW3test">
-    <machines>
-      <machine name="betzy" compiler="intel" category="aux_ww3_noresm"/>
-    </machines>
-    <options>
-      <option name="wallclock">01:00:00</option>
+      <option name="wallclock">02:01:00</option>
     </options>
   </test>
 </testlist>
