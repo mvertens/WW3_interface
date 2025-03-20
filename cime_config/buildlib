@@ -35,6 +35,7 @@ def buildlib(bldroot, libroot, case, compname=None):
     exe_root = case.get_value("EXEROOT")
     srcpath = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, "WW3", "model", "src"))
 
+    srcroot = case.get_value("SRCROOT")
 
     # Determine cmake flags
     use_unstruct = case.get_value("WW3_UNSTRUCT")
@@ -44,6 +45,8 @@ def buildlib(bldroot, libroot, case, compname=None):
     cmake_flags += " -DCMAKE_INSTALL_PREFIX:PATH=/"
     cmake_flags += " -DLIBROOT={} ".format(libroot)
     cmake_flags += " -DMPILIB={} ".format(mpilib)
+    cmake_flags += " -DSRCROOT={} ".format(srcroot)
+
     use_unstruct = case.get_value("WW3_UNSTRUCT")
     if use_unstruct:
         cmake_flags += " -DUSE_UNSTRUCT=on "
@@ -112,12 +115,12 @@ def buildlib(bldroot, libroot, case, compname=None):
         shutil.move("mod_def.ww3.log", os.path.join(rundir, "mod_def.ww3.log"))
 
     else:
-        # Use mod_def already created 
+        # Use mod_def already created
         mod_def_in = case.get_value("WW3_MODDEF")
         if os.path.isfile(mod_def_in):
             import filecmp
             copy_file = False
-            if not os.path.isfile(os.path.join(rundir, "mod_def.ww3")): 
+            if not os.path.isfile(os.path.join(rundir, "mod_def.ww3")):
                 copy_file = True
             elif not filecmp.cmp(mod_def_in, os.path.join(rundir, "mod_def.ww3")):
                 copy_file = True

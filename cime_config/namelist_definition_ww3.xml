@@ -35,16 +35,14 @@
     <values>
       <value runtype="startup">"" </value>
       <value runtype="hybrid" >"" </value>
-      <value runtype="startup"	wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
-      <value runtype="hybrid"	wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
-      <value runtype="startup"	wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
-      <value runtype="hybrid"	wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
-      <value runtype="startup"	wav_grid="wtx0.66v1">$DIN_LOC_ROOT/wav/ww3/wt061.restart.ww3.calm.wwver7.14.220110</value>
-      <value runtype="hybrid"	wav_grid="wtx0.66v1">$DIN_LOC_ROOT/wav/ww3/wt061.restart.ww3.calm.wwver7.14.220110</value>
-      <value runtype="startup"	wav_grid="wtnx1v4nw">' '</value>
-      <value runtype="hybrid"	wav_grid="wtnx1v4nw">' '</value>
-      <value runtype="startup"	wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
-      <value runtype="hybrid"	wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
+      <value runtype="startup" wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
+      <value runtype="hybrid"  wav_grid="ww3a">$DIN_LOC_ROOT/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119</value>
+      <value runtype="startup" wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
+      <value runtype="hybrid"  wav_grid="gx1v7">$DIN_LOC_ROOT/wav/ww3/gx1v7.restart.ww3.calm.wwver7.14.220328</value>
+      <value runtype="startup" wav_grid="wtnx1v4nw">' '</value>
+      <value runtype="hybrid"  wav_grid="wtnx1v4nw">' '</value>
+      <value runtype="startup" wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
+      <value runtype="hybrid"  wav_grid="wtnx1v4">$DIN_LOC_ROOT/wav/ww3/wtnx1v4.restart.ww3.230308</value>
     </values>
     <desc>
       Initial condition file.
