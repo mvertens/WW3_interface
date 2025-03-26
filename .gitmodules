@@ -27,10 +27,9 @@
 #
 
 [submodule "ww3"]
-url = https://github.com/NorESMhub/WW3.git
+url = https://github.com/mvertens/WW3.git
 path = WW3
-fxtag = ww3_noresm0.0.14
+fxtag = feature/ww3_accum_updates
 required = True
 fxrequired = AlwaysRequired
 fxDONOTUSEurl = https://github.com/NorESMhub/WW3.git
-
