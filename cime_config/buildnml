@@ -217,6 +217,7 @@ def _prestage_inputs(case):
     else:
         # Use mod_def already created
         mod_def_in = case.get_value("WW3_MODDEF")
+        print("WW3_MODDEF",mod_def_in)
         if os.path.isfile(mod_def_in):
             import filecmp
             copy_file = False
@@ -251,7 +252,7 @@ def _prestage_inputs(case):
         #ww3_moddef_dir = os.path.join(rundir, "ww3_moddef_create")
         #safe_copy(os.path.join(ww3_moddef_dir, "mod_def.ww3"), os.path.join(output_dir, "mod_def.ww3"))
         # Copy bounc_inp and other needed info to ww3_bounc_create directory
-        input_dir = case.get_value("WW3_BOUNDARY_DIR")
+        input_dir = case.get_value("WW3_BOUNDARY_INP_DIR")
         files = os.listdir(input_dir)
         for filename in files:
             if not os.path.isfile(os.path.join(output_dir, filename)):
@@ -272,6 +273,7 @@ def _prestage_inputs(case):
     else:
         # Use nest.ww3 already created
         bounc_in = case.get_value("WW3_BOUNC")
+        print("WW3_BOUNC=",bounc_in)
         if os.path.isfile(bounc_in):
             import filecmp
             copy_file = False
