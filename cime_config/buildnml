@@ -250,6 +250,7 @@ def _prestage_inputs(case):
 
         # Copy bounc_inp and other needed info to ww3_bounc_create directory
         input_dir = case.get_value("WW3_BOUNDARY_INP_DIR")
+        #safe_copy(os.path.join(input_dir, 'ww3_bounc.inp'), os.path.join(output_dir, 'ww3_bounc.inp'))
         files = os.listdir(input_dir)
         for filename in files:
             if not os.path.isfile(os.path.join(output_dir, filename)):
