@@ -90,6 +90,7 @@
       <value wav_grid="wtnx1v4">1800.</value>
       <value wav_grid="w025">1200.</value>
       <value wav_grid="mepsw">240.</value>
+      <value wav_grid="mepsa">240.</value>
     </values>
     <desc>
       Maximum overall time step
@@ -107,6 +108,7 @@
       <value wav_grid="wtnx1v4">900.</value>
       <value wav_grid="w025">600.</value>
       <value wav_grid="mepsw">80.</value>
+      <value wav_grid="mepsa">80.</value>
     </values>
     <desc>
       Maximum CFL time step X-Y propagation.
@@ -124,6 +126,7 @@
       <value wav_grid="wtnx1v4">900.</value>
       <value wav_grid="w025">600.</value>
       <value wav_grid="mepsw">120.</value>
+      <value wav_grid="mepsa">120.</value>
     </values>
     <desc>
       Id. intra-spectral
