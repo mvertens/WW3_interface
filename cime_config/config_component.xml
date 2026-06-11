@@ -65,7 +65,6 @@
     <default_value>$DIN_LOC_ROOT/wav/ww3/grid_inp.${WAV_GRID}</default_value>
     <values>
       <value grid="mepsw">/cluster/work/users/cmi022/grid_weps</value>
-      <value grid="mepsa">/cluster/work/users/cmi022/grid_weps</value>
     </values>
     <group>case_comp</group>
     <file>env_build.xml</file>
@@ -79,7 +78,6 @@
     <default_value>$DIN_LOC_ROOT/wav/ww3/grid_boundary.${WAV_GRID}</default_value>
     <values>
       <value grid="mepsw">/cluster/work/users/cmi022/bounc_inp</value>
-      <value grid="mepsa">/cluster/work/users/cmi022/bounc_inp</value>
     </values>
     <group>case_comp</group>
     <file>env_build.xml</file>

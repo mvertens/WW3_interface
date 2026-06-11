@@ -165,7 +165,7 @@ def buildlib(bldroot, libroot, case, compname=None):
         shutil.move("bounc.ww3.log", os.path.join(rundir, "bounc.ww3.log"))
 
     else:
-        # Use mod_def already created
+        # Use nest.ww3 already created
         bounc_in = case.get_value("WW3_BOUNC")
         if os.path.isfile(bounc_in):
             import filecmp
