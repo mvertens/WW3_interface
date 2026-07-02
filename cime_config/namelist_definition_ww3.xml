@@ -283,7 +283,7 @@
     <group>output_type_nml</group>
     <category>setup</category>
     <values>
-      <value>WND ICE HS T02 T0M1 T01 FP DP DIR EF USS TOC PHS PDIR PT01 PTM10</value>
+      <value>WND ICE IC1 HS T02 T0M1 T01 FP DP DIR USS TOC PHS PDIR PT01 PTM10</value>
     </values>
   </entry>
 
@@ -293,6 +293,24 @@
     <category>setup</category>
     <values>
       <value>points.list</value>
+    </values>
+  </entry>
+
+  <entry id="date_percent_point_percent_start">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>'20220401 000000'</value>
+    </values>
+  </entry>
+
+  <entry id="date_percent_point_percent_stride">
+    <type>char</type>
+    <group>output_date_nml</group>
+    <category>setup</category>
+    <values>
+      <value>3600</value>
     </values>
   </entry>
 

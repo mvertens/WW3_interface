@@ -41,6 +41,7 @@ def _create_namelists(case, confdir, namelist_infile, nmlgen, data_list_path):
     start_date = case.get_value("RUN_STARTDATE")
     start_date = start_date.replace("-","")
     start_tod = case.get_value("START_TOD")
+    print(start_date)
 
     # determine coupling intervals
     ncpl = case.get_value('WAV_NCPL')
@@ -77,7 +78,7 @@ def _create_namelists(case, confdir, namelist_infile, nmlgen, data_list_path):
 
     namelist_file = os.path.join(confdir, "wav_in")
     nmlgen.write_output_file(namelist_file, data_list_path,
-                             groups=["input_nml","output_type_nml","ww3_inparm"],
+                             groups=["input_nml","output_type_nml","output_date_nml","ww3_inparm"],
                              sorted_groups=False)
 
     from pathlib import Path
@@ -281,6 +282,23 @@ def _prestage_inputs(case):
                 shutil.copy(bounc_in, os.path.join(rundir, "nest.ww3"))
         else:
             raise RuntimeError("bounc_in {} does not exist on disk".format(bounc_in))
+
+######################################### NEW Clio June 2026 #########################
+    # Create rundir/ww3_ounp_create
+    filename = "ww3_ounp"
+    bldroot = os.path.join(case.get_value("EXEROOT"),"wav","obj")
+    item = os.path.join(bldroot, filename)
+    if os.path.isfile(item):
+        ww3_ounp_dir = os.path.join(rundir, "ww3_ounp_create")
+        if not os.path.exists(ww3_ounp_dir):
+            os.makedirs(ww3_ounp_dir)
+        if not os.path.exists(os.path.join(ww3_ounp_dir,filename)):
+            safe_copy(item, ww3_ounp_dir)
+        # Copy mod_def.ww3 from ww3_moddef_create directory to ww3_ounp_create directory
+        safe_copy(os.path.join(rundir, "mod_def.ww3"), os.path.join(ww3_ounp_dir, "mod_def.ww3"))
+    else:
+        logger.warning(item+" does not exist")
+
 
 ###############################################################################
 def _main_func():
