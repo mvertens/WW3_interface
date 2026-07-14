@@ -301,7 +301,7 @@
     <group>output_date_nml</group>
     <category>setup</category>
     <values>
-      <value>'20220401 000000'</value>
+      <value>unset</value>
     </values>
   </entry>
 
