@@ -181,25 +181,29 @@ def buildlib(bldroot, libroot, case, compname=None):
 
     ######################################### NEW Clio June 2026 #########################
     # Create rundir/ww3_ounp_create
-    filename = "ww3_ounp"
-    dir_ounp_nml = case.get_value("WW3_OUNP_NML_DIR")
-    bldroot = os.path.join(case.get_value("EXEROOT"),"wav","obj")
-    item = os.path.join(bldroot, filename)
-    if os.path.isfile(item):
-        ww3_ounp_dir = os.path.join(rundir, "ww3_ounp_create")
-        if not os.path.exists(ww3_ounp_dir):
-            os.makedirs(ww3_ounp_dir)
-        if not os.path.exists(os.path.join(ww3_ounp_dir,filename)):
-            safe_copy(item, ww3_ounp_dir)
-        # Copy mod_def.ww3 from ww3_moddef_create directory to ww3_ounp_create directory
-        safe_copy(os.path.join(rundir, "mod_def.ww3"), os.path.join(ww3_ounp_dir, "mod_def.ww3"))
-        # Copy ww3_ounp.nml from path set in WW3_OUNP_NML_DIR
-        if os.path.isfile(os.path.join(dir_ounp_nml, "ww3_ounp.nml")):
-            safe_copy(os.path.join(dir_ounp_nml, "ww3_ounp.nml"), os.path.join(ww3_ounp_dir, "ww3_ounp.nml"))
+    # Clio added points swicth on 7 August 2026
+    if case.get_value("POINTS_SWITCH") == True: 
+        filename = "ww3_ounp"
+        dir_ounp_nml = case.get_value("WW3_OUNP_NML_DIR")
+        bldroot = os.path.join(case.get_value("EXEROOT"),"wav","obj")
+        item = os.path.join(bldroot, filename)
+        if os.path.isfile(item):
+            ww3_ounp_dir = os.path.join(rundir, "ww3_ounp_create")
+            if not os.path.exists(ww3_ounp_dir):
+                os.makedirs(ww3_ounp_dir)
+            if not os.path.exists(os.path.join(ww3_ounp_dir,filename)):
+                safe_copy(item, ww3_ounp_dir)
+            # Copy mod_def.ww3 from ww3_moddef_create directory to ww3_ounp_create directory
+            safe_copy(os.path.join(rundir, "mod_def.ww3"), os.path.join(ww3_ounp_dir, "mod_def.ww3"))
+            # Copy ww3_ounp.nml from path set in WW3_OUNP_NML_DIR
+            if os.path.isfile(os.path.join(dir_ounp_nml, "ww3_ounp.nml")):
+                safe_copy(os.path.join(dir_ounp_nml, "ww3_ounp.nml"), os.path.join(ww3_ounp_dir, "ww3_ounp.nml"))
+            else:
+                raise logger.warning(os.path.join(dir_ounp_nml, "ww3_ounp.nml")+" does not exist")
         else:
-            raise logger.warning(os.path.join(dir_ounp_nml, "ww3_ounp.nml")+" does not exist")
+            logger.warning(item+" does not exist")
     else:
-        logger.warning(item+" does not exist")
+        print("No point output requested")
 
     ##########################################################################################
 

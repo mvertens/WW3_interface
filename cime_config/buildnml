@@ -76,6 +76,11 @@ def _create_namelists(case, confdir, namelist_infile, nmlgen, data_list_path):
         point_start_date = start_date.replace("-", "")+' 000000'
         print(f"initial run point start date is {start_date}")
     nmlgen.set_value("date_percent_point_percent_start", value=point_start_date)
+    if case.get_value("POINTS_SWITCH") == False:
+        print('trying deleting entries from namelist')
+        nmlgen._namelist.delete_variable("output_type_nml", "type_percent_point_percent_file")
+        nmlgen._namelist.delete_variable("output_date_nml", "date_percent_point_percent_start")
+        nmlgen._namelist.delete_variable("output_date_nml", "date_percent_point_percent_stride")
 
     # error check
     dtcpl = basedt / int(ncpl)
@@ -86,7 +91,6 @@ def _create_namelists(case, confdir, namelist_infile, nmlgen, data_list_path):
 
     # write diagnostic info
     logger.debug("ww3 initial conditions file is %s", nmlgen.get_value("initfile"))
-
     namelist_file = os.path.join(confdir, "wav_in")
     nmlgen.write_output_file(namelist_file, data_list_path,
                              groups=["input_nml","output_type_nml","output_date_nml","ww3_inparm"],
@@ -300,45 +304,47 @@ def _prestage_inputs(case):
             raise RuntimeError("bounc_in {} does not exist on disk".format(bounc_in))
 
     # Create rundir/ww3_ounp_create
-    filename = "ww3_ounp"
-    dir_ounp_nml = case.get_value("WW3_OUNP_NML_DIR")
-    start_date = case.get_value("RUN_STARTDATE")
-    start_date = start_date.replace("-","")
-    bldroot = os.path.join(case.get_value("EXEROOT"),"wav","obj")
-    item = os.path.join(bldroot, filename)
-    if os.path.isfile(item):
-        ww3_ounp_dir = os.path.join(rundir, "ww3_ounp_create")
-        if not os.path.exists(ww3_ounp_dir):
-            os.makedirs(ww3_ounp_dir)
-        if not os.path.exists(os.path.join(ww3_ounp_dir,filename)):
-            safe_copy(item, ww3_ounp_dir)
-        # Copy mod_def.ww3 from ww3_moddef_create directory to ww3_ounp_create directory
-        safe_copy(os.path.join(rundir, "mod_def.ww3"), os.path.join(ww3_ounp_dir, "mod_def.ww3"))
-
-        # Copy ww3_ounp.nml from path set in WW3_OUNP_NML_DIR
-        if os.path.isfile(os.path.join(dir_ounp_nml, "ww3_ounp.nml")):
-            safe_copy(os.path.join(dir_ounp_nml, "ww3_ounp.nml"), os.path.join(ww3_ounp_dir, "ww3_ounp.nml"))
+    if case.get_value("POINTS_SWITCH") == True:
+        filename = "ww3_ounp"
+        dir_ounp_nml = case.get_value("WW3_OUNP_NML_DIR")
+        start_date = case.get_value("RUN_STARTDATE")
+        start_date = start_date.replace("-","")
+        bldroot = os.path.join(case.get_value("EXEROOT"),"wav","obj")
+        item = os.path.join(bldroot, filename)
+        if os.path.isfile(item):
+            ww3_ounp_dir = os.path.join(rundir, "ww3_ounp_create")
+            if not os.path.exists(ww3_ounp_dir):
+                os.makedirs(ww3_ounp_dir)
+            if not os.path.exists(os.path.join(ww3_ounp_dir,filename)):
+                safe_copy(item, ww3_ounp_dir)
+            # Copy mod_def.ww3 from ww3_moddef_create directory to ww3_ounp_create directory
+            safe_copy(os.path.join(rundir, "mod_def.ww3"), os.path.join(ww3_ounp_dir, "mod_def.ww3"))
+            # Copy ww3_ounp.nml from path set in WW3_OUNP_NML_DIR
+            if os.path.isfile(os.path.join(dir_ounp_nml, "ww3_ounp.nml")):
+               safe_copy(os.path.join(dir_ounp_nml, "ww3_ounp.nml"), os.path.join(ww3_ounp_dir, "ww3_ounp.nml"))
+            else:
+                raise logger.warning(os.path.join(dir_ounp_nml, "ww3_ounp.nml")+" does not exist")
+            continue_run = case.get_value("CONTINUE_RUN")
+            if (continue_run):
+                drv_restart_pointer = case.get_value("DRV_RESTART_POINTER")
+                point_start_date = drv_restart_pointer.split(".")[-1][:10].replace("-", "")+' 000000'
+                print (f"continue run point start date is {point_start_date}")
+            else:
+                point_start_date = case.get_value("RUN_STARTDATE")
+                point_start_date = start_date.replace("-", "")+' 000000'
+                print(f"initial run point start date is {start_date}")
+            ww3_ounp_nml_file = os.path.join(rundir,"ww3_ounp_create","ww3_ounp.nml")
+            if os.path.exists(ww3_ounp_nml_file):
+                lines = open(ww3_ounp_nml_file).readlines()
+                for i, line in enumerate(lines):
+                   if "POINT%TIMESTART" in line:
+                       lines[i] = f"  POINT%TIMESTART        = '{point_start_date}'\n"
+                       break
+                open(ww3_ounp_nml_file, "w").writelines(lines)
         else:
-            raise logger.warning(os.path.join(dir_ounp_nml, "ww3_ounp.nml")+" does not exist")
-        continue_run = case.get_value("CONTINUE_RUN")
-        if (continue_run):
-            drv_restart_pointer = case.get_value("DRV_RESTART_POINTER")
-            point_start_date = drv_restart_pointer.split(".")[-1][:10].replace("-", "")+' 000000'
-            print (f"continue run point start date is {point_start_date}")
-        else:
-            point_start_date = case.get_value("RUN_STARTDATE")
-            point_start_date = start_date.replace("-", "")+' 000000'
-            print(f"initial run point start date is {start_date}")
-        ww3_ounp_nml_file = os.path.join(rundir,"ww3_ounp_create","ww3_ounp.nml")
-        if os.path.exists(ww3_ounp_nml_file):
-            lines = open(ww3_ounp_nml_file).readlines()
-            for i, line in enumerate(lines):
-               if "POINT%TIMESTART" in line:
-                   lines[i] = f"  POINT%TIMESTART        = '{point_start_date}'\n"
-                   break
-            open(ww3_ounp_nml_file, "w").writelines(lines)
+            logger.warning(item+" does not exist")
     else:
-        logger.warning(item+" does not exist")
+        print("Point output not requested")
 
 
 ###############################################################################
