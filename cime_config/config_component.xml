@@ -95,6 +95,7 @@
   </entry>
 
   <entry id="WW3_OUNP_NML_DIR">
+    <type>char</type>
     <default_value>unset</default_value>
     <values>
       <value grid="mepsw">/nobackup/forsk/sm_climi/ounp_nml</value>
